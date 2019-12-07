@@ -27,6 +27,11 @@ def solve(filename):
     sequence = readSequence(filename)
     return runChangedProgram(sequence, 12, 2)
 
+def decodeAnswer(answer):
+    (a, b) = divmod(answer - 521344, 368640)
+    return 100 * a + b
+
 if __name__ == "__main__":
     res = solve("day2/input.txt")
     print res
+    print decodeAnswer(19690720)
