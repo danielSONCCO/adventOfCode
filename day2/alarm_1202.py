@@ -16,12 +16,17 @@ def runProgram(sequence):
         else:
             raise Exception()
 
+# 368640*a + b + 521344
+def runChangedProgram(sequence, a, b):
+    copy = list(sequence)
+    copy[1], copy[2] = a, b
+    runProgram(copy)
+    return copy[0]
+
 def solve(filename):
     sequence = readSequence(filename)
-    sequence[1] = 12
-    sequence[2] = 2
-    runProgram(sequence)
-    return sequence[0]
+    return runChangedProgram(sequence, 12, 2)
 
 if __name__ == "__main__":
-    print solve("day2/input.txt")
+    res = solve("day2/input.txt")
+    print res
